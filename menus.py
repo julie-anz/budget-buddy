@@ -115,15 +115,28 @@ def view_expenses(expenses):
     print(DIVIDER)
     if not expenses:
         print("You have no expenses yet.")
-        print("Choose 'Add an expense' from the home menu to add one.")
+        print("Choose 1 below to add one.")
     else:
         print_table(expenses)
         total = round(sum(e.amount for e in expenses), 2)
         word = "expense" if len(expenses) == 1 else "expenses"
         print(DIVIDER)
         print(f"Total: ${total:.2f} ({len(expenses)} {word})")
-    print(DIVIDER)
-    input("Press Enter to return home.")
+    print(DIVIDER + "\n")
+    print("1. Add an expense")
+    print("2. Delete an expense")
+    print("3. Return home")
+
+    while True:
+        choice = get_input("Type a number: ")
+        if choice in ("1", "2", "3"):
+            break
+        print("Please type 1, 2 or 3.")
+
+    if choice == "1":
+        add_expense(expenses)
+    elif choice == "2":
+        delete_expense(expenses)
 
 def delete_expense(expenses):
     while True:
