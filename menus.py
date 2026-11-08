@@ -34,7 +34,7 @@ def home_menu():
 
 def add_expense(expenses):
     while True:
-        print(DIVIDER)
+        print("\n" + DIVIDER)
         print("ADD AN EXPENSE")
         print("You will enter 3 things: amount, date, category.")
         print("Type r at any time to return home, or q to quit.")
@@ -54,7 +54,7 @@ def add_expense(expenses):
         expenses.append(expense)
         save_expenses(expenses)
 
-        print(DIVIDER)
+        print("\n" + DIVIDER)
         print("Expense saved!")
         expense.print_details()
         print(DIVIDER + "\n")
@@ -110,7 +110,7 @@ def print_table(expenses):
         print(f"{number:<4}{expense.date:<13}{expense.category:<17}{amount_text:>10}")
         
 def view_expenses(expenses):
-    print(DIVIDER)
+    print("\n" + DIVIDER)
     print("YOUR EXPENSES")
     print(DIVIDER)
     if not expenses:
@@ -140,7 +140,7 @@ def view_expenses(expenses):
 
 def delete_expense(expenses):
     while True:
-        print(DIVIDER)
+        print("\n" + DIVIDER)
         print("DELETE AN EXPENSE")
         print(DIVIDER)
         if not expenses:
@@ -163,7 +163,7 @@ def delete_expense(expenses):
 
         # Step 2: confirm
         expense = expenses[index]
-        print(DIVIDER)
+        print("\n" + DIVIDER)
         print("You chose:")
         expense.print_details()
         print(DIVIDER)
@@ -183,7 +183,7 @@ def delete_expense(expenses):
         # Step 3: delete it, then offer undo
         deleted = expenses.pop(index)
         save_expenses(expenses)
-        print(DIVIDER)
+        print("\n" + DIVIDER)
         print("Expense deleted.")
         print(DIVIDER)
         print("1. Undo delete")
@@ -198,7 +198,7 @@ def delete_expense(expenses):
         if option == "1":
             expenses.append(deleted)
             save_expenses(expenses)
-            print(DIVIDER)
+            print("\n" + DIVIDER)
             print("Expense restored.")
             deleted.print_details()
             print(DIVIDER)
@@ -208,7 +208,7 @@ def delete_expense(expenses):
             return
         
 def help_menu():
-    print(DIVIDER)
+    print("\n" + DIVIDER)
     print("HELP")
     print(DIVIDER)
     print("To add an expense:")
